@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>Signin Template · Bootstrap v5.3</title>
+    <title>AUNI</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
@@ -115,37 +115,36 @@ body {
 }
     </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="sign-in.css" rel="stylesheet">
   </head>
   <body class="text-center">
     
 <main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="{% static "img/logo-white.svg" %}" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
+  <form action="." method="post"> {% csrf_token %}
+    <img class="mb-4" src="{% static "img/logo-black.png" %}" alt="" width="72">
+    <h1 class="h3 mb-3 fw-normal">AUNI</h1>
+    <p class=" mb-3 fw-normal">Davom ettirish uchun login va parolingizni kiriting</p>
+    {% if error  %}
+    <div class="alert alert-danger" role="alert">
+      {{error}}
+    </div>
+    {% endif %}
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+      <input type="username" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Login</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Parol</label>
     </div>
 
-    <div class="checkbox mb-3">
+    <!-- <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
       </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+    </div> -->
+    <button class="mt-3 w-100 btn btn-lg btn-primary" type="submit">Kirish</button>
+    <p class="mb-3 text-muted" style="margin-top: 250px;">&copy; AUNI 2023</p>
   </form>
 </main>
-
-
-    
   </body>
 </html>

@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+   
+
+
+
+   {% block content %}
+
+   <link rel="stylesheet" href="{% static "css/library/style.css" %}">
+   <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="justify-content-center align-items-center d-flex">
+            <a class="navbar-brand px-4 justify-content-center align-items-center d-flex" href="/">
+              <img src="https://mr.auni.uz/public/marketing2021/img/logo_white.svg" alt="" width="120" height="65" class="d-inline-block align-text-top color-white">
+                <span class="text-white fs-2">AUNI  {% trans 'Onlayn' %}<br> {% trans 'Kutubxonasi' %}</span>
+            </a>
+            <!-- <h1 class="fs-3 text-white">Marketing TSUL</h1> -->
+          </div>
+          <button class=" bg-transparent d-xl-none border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white fs-2"></i>
+          </button>
+          <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto my-2  my-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active fs-6 linkColor  mx-lg-1 mx-xl-2" aria-current="page" href="categories"> Kategoriyalar</a>
+                </li>
+              </ul>
+          </div> -->
+        </div>
+      </nav>
+
+
+      <div class="container">
+        <form action="{% url 'search_book' %}" method="get" >
+        <div class="input-group my-3">
+            <input type="text" name="q" class="form-control" placeholder="{% trans 'Qidirish...' %}" >
+          </div>
+        </form>
+      
+          <div class="row">
+
+        
+            <div class="col-md-9 mb-2">
+                {% if books %}
+                {% for book in books %}
+                    <div class="mb-2 shadow pt-3 px-3 rounded-2">
+                        <div class="">
+                            <h4>{{book.name}}</h4>
+                            <div class="row">
+                                <div class="col-4"><p class="">{{book.year.year}} {% trans 'yil' %}</p> </div>
+                                <div class="col-4"><p class="">{{book.category.name}}</p></div>
+                                <div class="col-4 downloadb"> <a href="{{book.file.url}}" download>{% trans 'Yuklash' %}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                 {% endfor %}
+
+                 {% if is_paginated %}
+
+                 <ul class="pagination justify-content-center my-5">
+                    {% if page_obj.has_previous %}
+                      <li class="page-item">
+                        <a class='page-link' href='?page=1'>{% trans 'Birinchi' %}</a>
+                      </li>
+                      <li class="page-item">
+                        <a class='page-link' href='?page={{ page_obj.previous_page_number }}'>&laquo;</a>
+                      </li>
+                    {% endif %}
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <li class="page-item disabled">
+                            <a class='page-link' href='?page={{ num }}'>{{ num }}</a>
+                        </li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class='page-link' href='?page={{ num }}'>{{ num }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                        <a class='page-link' href='?page={{ page_obj.next_page_number }}'>&raquo;</a>
+                        </li>
+                        <li class="page-item">
+                        <a class='page-link' href='?page={{ page_obj.paginator.num_pages }}'>{% trans 'Ohirgi' %}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+             {% endif %}
+        {% else %}
+             <h3> {% trans 'Birorta kitob topilmadi' %}</h3>
+         {% endif %}
+            </div>
+
+
+        
+
+        
+            
+            <div class="col-md-3">
+            <div class="my-2 shadow p-3 rounded-2">
+                {% get_current_language_bidi as LANGUAGE_BIDI %}
+                {% get_current_language as LANGUAGE_CODE %}
+                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <input name="next" type="hidden" value="/">
+                    <select name="language" class="form-select mb-4" onchange="this.form.submit()">
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                                {{ language.name_local }} ({{ language.code }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+
+                
+                
+                <!-- сайдбар с категориями -->
+                <h3 class="mb-3"> {% trans 'Kategoriyalar' %}</h3>
+                <ul class="list-group">
+                    {% for cat in categories %}
+                    <a href="/category/{{cat.slug}}" style="color: black;">
+                        <li class="list-group-item">{{cat.name}}</li>
+                    </a>
+                    {% endfor %}
+                  </ul>
+
+
+                
+            </div>
+             
+            </div>
+        </div>
+      
+      
+      
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

@@ -1,15 +1,17 @@
 from django.contrib import admin
 from .models import BookCategory, Book
+from modeltranslation.admin import TranslationAdmin
 
 
 
 
 
 
-@admin.register(BookCategory)
-class BookCategoryAdmin(admin.ModelAdmin):
+
+class BookCategoryAdmin(TranslationAdmin):
     list_display = ('name',)
     prepopulated_fields = {"slug": ('name',)}
+admin.site.register(BookCategory, BookCategoryAdmin)
 
 
 

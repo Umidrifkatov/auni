@@ -1,0 +1,34 @@
+:root {
+    --colorOne: #002329;
+    --colorTwo:#8c8c8c;
+    --colorThree: #f0f0f0;
+    --colorFour: #1890ff;
+    --colorFive: #09B138;
+    --colorSix: #595959;
+  }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100% !important; 
+  }
+  
+  .navbar{
+    background-color: var(--colorOne) !important;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;    
+  }
+.linkColor{
+  color: var(--colorThree) !important;
+}
+.linkColor:hover{
+  color: var(--colorThree) !important;
+  border-bottom: 1px solid var(--colorThree);
+  transition: all 0.3s;
+}
+
+a{
+    text-decoration: none;
+    color:var(--colorOne) !important;
+}
+
+

@@ -1,5 +1,5 @@
 
-
+from google.oauth2 import service_account
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
@@ -22,6 +22,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'student',
     'library',
+    
 ]
 
 MIDDLEWARE = [
@@ -97,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'UTC'
 
@@ -137,3 +139,19 @@ LANGUAGES = [
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
+
+LOGIN_URL = 'login/'
+
+
+
+# Set "media" folder
+DEFAULT_FILE_STORAGE = 'auni.gcsUtils.Media'
+
+GS_BUCKET_NAME = 'auni_library'
+
+# Add an unique ID to a file name if same file name exists
+GS_FILE_OVERWRITE = False
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    BASE_DIR / 'gckey.json',
+)
