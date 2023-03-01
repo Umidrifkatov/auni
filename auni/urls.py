@@ -8,7 +8,6 @@ admin.site.site_header = 'AUNI Admin'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', user_login, name='login'),
     path('i18n/', include('django.conf.urls.i18n')),
 
 ]
@@ -16,4 +15,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', include('library.urls')),
+    path('login/', user_login, name='login'),
 )
