@@ -143,7 +143,7 @@ LOCALE_PATHS = [
 LOGIN_URL = 'login/'
 
 
-
+STATICFILES_STORAGE = 'auni.gcsUtils.Static'
 # Set "media" folder
 DEFAULT_FILE_STORAGE = 'auni.gcsUtils.Media'
 
