@@ -143,15 +143,15 @@ LOCALE_PATHS = [
 LOGIN_URL = 'login/'
 
 
-STATICFILES_STORAGE = 'auni.gcsUtils.Static'
-# Set "media" folder
-DEFAULT_FILE_STORAGE = 'auni.gcsUtils.Media'
+# STATICFILES_STORAGE = 'auni.gcsUtils.Static'
+# # Set "media" folder
+# DEFAULT_FILE_STORAGE = 'auni.gcsUtils.Media'
 
-GS_BUCKET_NAME = 'auni_library'
+# GS_BUCKET_NAME = 'auni_library'
 
-# Add an unique ID to a file name if same file name exists
-GS_FILE_OVERWRITE = False
+# # Add an unique ID to a file name if same file name exists
+# GS_FILE_OVERWRITE = False
 
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    BASE_DIR / 'gckey.json',
-)
+# GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+#     BASE_DIR / 'gckey.json',
+# )

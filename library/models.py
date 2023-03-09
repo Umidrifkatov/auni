@@ -25,7 +25,7 @@ class Book(models.Model):
     desc = models.CharField(max_length=1000, null=True, verbose_name='Описание')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     category = models.ForeignKey(BookCategory, on_delete=models.CASCADE, verbose_name='Категория')
-    file = models.FileField(upload_to='books', verbose_name='Файл')
+    file = models.CharField(max_length=1000, verbose_name='файл из гугл диска')
 
     def __str__(self):
         return self.name
