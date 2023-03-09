@@ -121,6 +121,9 @@ STATICFILES_DIRS = [
 ]
 
 
+STATIC_ROOT = "staticfiles/"
+
+
 
 
 # Default primary key field type
