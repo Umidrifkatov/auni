@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-26 18:56+0000\n"
+"POT-Creation-Date: 2023-03-12 11:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,18 +16,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: auni/settings.py:131
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: auni/settings.py:138
 msgid "Английский"
 msgstr "Ingliz"
 
-#: auni/settings.py:132
+#: auni/settings.py:139
 msgid "Русский"
 msgstr "Rus"
 
-#: auni/settings.py:133
+#: auni/settings.py:140
 msgid "Узбекский"
 msgstr "O'zbek tili"
 
@@ -48,8 +49,8 @@ msgid "yil"
 msgstr "год"
 
 #: templates/library/lib.html:54
-msgid "Yuklash"
-msgstr "Загрузить"
+msgid "Kitobni oqish"
+msgstr "Читать"
 
 #: templates/library/lib.html:65
 msgid "Birinchi"
@@ -63,6 +64,9 @@ msgstr "Последняя"
 msgid "Birorta kitob topilmadi"
 msgstr "Не найдено ни одной книги"
 
-#: templates/library/lib.html:104
+#: templates/library/lib.html:122
 msgid "Kategoriyalar"
 msgstr "Категории"
+
+#~ msgid "Yuklash"
+#~ msgstr "Загрузить"

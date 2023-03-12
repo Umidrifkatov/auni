@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-26 18:56+0000\n"
+"POT-Creation-Date: 2023-03-12 11:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: auni/settings.py:131
+
+#: auni/settings.py:138
 msgid "Английский"
 msgstr "English"
 
-#: auni/settings.py:132
+#: auni/settings.py:139
 msgid "Русский"
 msgstr "Russian"
 
-#: auni/settings.py:133
+#: auni/settings.py:140
 msgid "Узбекский"
 msgstr "Uzbek"
 
@@ -46,8 +47,8 @@ msgid "yil"
 msgstr "year"
 
 #: templates/library/lib.html:54
-msgid "Yuklash"
-msgstr "Download"
+msgid "Kitobni oqish"
+msgstr "Read"
 
 #: templates/library/lib.html:65
 msgid "Birinchi"
@@ -61,6 +62,9 @@ msgstr "Last"
 msgid "Birorta kitob topilmadi"
 msgstr "No books found"
 
-#: templates/library/lib.html:104
+#: templates/library/lib.html:122
 msgid "Kategoriyalar"
 msgstr "Categories"
+
+#~ msgid "Yuklash"
+#~ msgstr "Download"

@@ -18,7 +18,8 @@ admin.site.register(BookCategory, BookCategoryAdmin)
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category',)
+    list_display = ('name', 'category','file',)
+    list_editable = ('file', )
     prepopulated_fields = {"slug": ('name',)}
 
 
